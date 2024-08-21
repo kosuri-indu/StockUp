@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash-message {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2 class="auth-title">Sign In</h2>
+            <form method="POST" action="/signin">
+                <div class="auth-field">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="auth-field">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="auth-button">Sign In</button>
+                <p class="auth-link">Don't have an account? <a href="/signup">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
