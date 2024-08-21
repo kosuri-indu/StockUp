@@ -1,7 +1,3 @@
-Here's a more fun and engaging ending for your README:
-
----
-
 # Stock Up 🧊🍽️
 
 **Stock Up** is your smart fridge assistant that makes managing your groceries simple and efficient. From real-time inventory checks to expiration alerts, this app ensures you always know what's fresh, helping you reduce food waste and optimize meal planning.
