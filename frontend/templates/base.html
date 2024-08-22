@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+                <div class="logo_name">StockUp</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list" id="nav_list">
+            <li>
+                <a href="#">
+                    <i class='bx bx-fridge'></i>
+                    <span class="links_name">Fridge Peek</span>
+                </a>
+                <span class="tooltip">Fridge Peek</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-hot'></i>
+                    <span class="links_name">Calorie Check</span>
+                </a>
+                <span class="tooltip">Calorie Check</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-alarm-exclamation'></i>
+                    <span class="links_name">Shelf Alert</span>
+                </a>
+                <span class="tooltip">Shelf Alert</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-food-menu'></i>
+                    <span class="links_name">Gourmet Goals</span>
+                </a>
+                <span class="tooltip">Gourmet Goals</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-bowl-rice' ></i>
+                    <span class="links_name">Recipie Genie</span>
+                </a>
+                <span class="tooltip">Recipie Genie</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart-alt'></i>
+                    <span class="links_name">Shop Smart</span>
+                </a>
+                <span class="tooltip">Shop Smart</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="links_name">Savvy Saver</span>
+                </a>
+                <span class="tooltip">Fridge Peek</span>
+            </li>
+        </ul>
+    </div>
+    <div class="header">
+        <h1>StockUp</h1>
+    </div>
+    <div class="container">
+        {% block container %}
+            
+        {% endblock container %}
+    </div>
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let navList = document.querySelector("#nav_list");
+
+        btn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (window.innerWidth <= 480) {
+                navList.classList.toggle("dropdown-active");
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 480) {
+                navList.classList.remove("dropdown-active");
+            }
+        });
+    </script>
+</body>
+</html>

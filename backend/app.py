@@ -32,7 +32,7 @@ def signup():
             # Create a new user
             user = auth.create_user_with_email_and_password(email, password)
             flash('Account created successfully')
-            return redirect(url_for('new')) 
+            return redirect(url_for('home')) 
         except Exception as e:
             # Handle error if the email already exists or other errors
             flash(f'Error: {str(e)}')
@@ -48,16 +48,16 @@ def signin():
         try:
             user = auth.sign_in_with_email_and_password(email, password)
             flash('Sign in successful')
-            return redirect(url_for('new'))  
+            return redirect(url_for('home'))  
         except Exception as e:
             flash(f'Error: {str(e)}')
             return redirect(url_for('signin'))
 
     return render_template('signin.html')
 
-@app.route('/new', methods=['GET', 'POST'])
-def new():
-    return render_template('new.html')
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template('home.html')
 
 @app.route('/')
 def index():
