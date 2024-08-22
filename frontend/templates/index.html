@@ -6,6 +6,27 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
     <title>StockUp | Your Smart Fridge Assistant</title>
+    <style>
+        
+.header__image::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("{{url_for('static', filename='images/header-bg.png')}}");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+    </style>
 </head>
 <body>
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -50,7 +71,7 @@
                 <span><i class="ri-guide-line"></i></span>
                 Shopping List
             </div>
-            <img src="{{ url_for('static', filename='images/image.png') }}" alt="header" />
+            <img src="{{ url_for('static', filename='images/robo.png') }}" alt="header" />
         </div>
         <div class="header__content">
             <h1>LET'S STOCK UP!<br />THE <span>FUTURE</span> OF FOOD MANAGEMENT</h1>
