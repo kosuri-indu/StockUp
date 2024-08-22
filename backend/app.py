@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 import pyrebase
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
 # Firebase configuration
 config = {
@@ -32,7 +32,7 @@ def signup():
             # Create a new user
             user = auth.create_user_with_email_and_password(email, password)
             flash('Account created successfully')
-            return redirect(url_for('new'))  # Redirect to the index route
+            return redirect(url_for('new')) 
         except Exception as e:
             # Handle error if the email already exists or other errors
             flash(f'Error: {str(e)}')
