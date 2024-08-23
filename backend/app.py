@@ -31,11 +31,9 @@ def signup():
         try:
             # Create a new user
             user = auth.create_user_with_email_and_password(email, password)
-            flash('Account created successfully')
             return redirect(url_for('home')) 
         except Exception as e:
-            # Handle error if the email already exists or other errors
-            flash(f'Error: {str(e)}')
+            flash('Signup failed. Please try again.', 'error')
             return redirect(url_for('signup'))
 
     return render_template('signup.html')
@@ -47,10 +45,9 @@ def signin():
         password = request.form.get('password')
         try:
             user = auth.sign_in_with_email_and_password(email, password)
-            flash('Sign in successful')
             return redirect(url_for('home'))  
         except Exception as e:
-            flash(f'Error: {str(e)}')
+            flash('Login failed. Please check your credentials.', 'error')
             return redirect(url_for('signin'))
 
     return render_template('signin.html')

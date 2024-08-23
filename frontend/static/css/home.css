@@ -238,31 +238,31 @@ body {
 }
 
 .container .box.rg {
-    background-color: #fccd04;
+    background-color: #ffeb3b;
 }
 
 .container .box.ss {
-    background-color: #17e9e0;
+    background-color: #8bc34a;
 }
 
 .container .box.gg {
-    background-color: #d6ce15;
+    background-color: #ff9800;
 }
 
 .container .box.lwc {
-    background-color: #ffb48f;
+    background-color: #8bc34a;
 }
 
 .container .box.sa {
-    background-color: #fe6e28;
+    background-color: #ffeb3b;
 }
 
 .container .box.cc {
-    background-color: #a64ac9;
+    background-color: #ff9800;
 }
 
 .container .box.shs {
-    background-color: #bc4639;
+    background-color: #f44336;
 }
 
 @media (max-width: 850px) {
