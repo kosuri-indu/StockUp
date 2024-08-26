@@ -199,20 +199,22 @@ body {
 }
 
 .container .box {
-    padding: 20px;
-    display: grid;
-    font-size: 20px;
-    place-items: center;
-    text-align: center;
     color: #fff;
     border-radius: 12px;
     transition: 0.5s;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.container .box img {
-    position: relative;
-    max-width: 100px;
+.container .box .rgimg {
+    padding-left: 2em;
+    max-width: 50%;
+    height: auto;
     margin-bottom: 10px;
+    object-fit: contain;
 }
 
 .container .box:nth-child(1) {
@@ -275,6 +277,7 @@ body {
     .container .box {
         grid-column: unset !important;
         grid-row: unset !important;
+        padding: 0.8em;
     }
 }
 
