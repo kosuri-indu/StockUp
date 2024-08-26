@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-self: center;
     min-height: 100vh;
-    background-color: white;
+    background-color: #FEF5DA;
 }
 
 .sidebar {
@@ -22,7 +22,7 @@ body {
     left: 0;
     height: 100vh;
     width: 78px;
-    background: linear-gradient(to top, #120a3d, #412754);
+    background: #1d3146;
     padding: 6px 14px;
     transition: all 0.5s ease;
     z-index: 1000;
@@ -163,6 +163,7 @@ body {
     position: absolute; /* Adjust if needed, or use relative positioning */
     top: 0; /* Align to top of the container */
     z-index: 1;
+    color: #2F1625;
 }
 
 .header h1 {
@@ -208,10 +209,6 @@ body {
     transition: 0.5s;
 }
 
-.container .box:hover {
-    background: #e91e63;
-}
-
 .container .box img {
     position: relative;
     max-width: 100px;
@@ -239,31 +236,31 @@ body {
 }
 
 .container .box.rg {
-    background-color: #ffeb3b;
+    background-color: #FF6A71;
 }
 
 .container .box.ss {
-    background-color: #8bc34a;
+    background-color: #ABA136;
 }
 
 .container .box.gg {
-    background-color: #ff9800;
+    background-color: #FEAEAE;
 }
 
 .container .box.lwc {
-    background-color: #8bc34a;
+    background-color: #FFC84E;
 }
 
 .container .box.sa {
-    background-color: #ffeb3b;
+    background-color: #3B4677;
 }
 
 .container .box.cc {
-    background-color: #ff9800;
+    background-color: #941E44;
 }
 
 .container .box.shs {
-    background-color: #f44336;
+    background-color: #F5B539;
 }
 
 @media (max-width: 850px) {
