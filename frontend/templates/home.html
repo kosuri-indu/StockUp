@@ -1,24 +1,20 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<div class="box ss" onclick="window.location.href='/savysaver'">
-    <div class="savvy-saver">
-        <p>Savvy Saver</p>
-    </div>
-</div>
-<div class="box sa" onclick="window.location.href='/shelf-alert'">
-    <div class="shelf-alert">
-        <p>Shelf Alert</p>
+
+<div class="box lwc" onclick="window.location.href='/look-whats-chilling'">
+    <div class="look-whts-chilling">
+        <img src="{{ url_for('static', filename='images/fridge1.png') }}" class="lwcimg">
     </div>
 </div>
 <div class="box gg" onclick="window.location.href='/gourmet-goals'">
     <div class="gourmet-goals">
-        <p>Gourmet Goals</p>
+        <img src="{{ url_for('static', filename='images/goals.png') }}" class="ggimg">
     </div>
 </div>
-<div class="box lwc" onclick="window.location.href='/look-whats-chilling'">
-    <div class="look-whts-chilling">
-        <p>Look What's Chilling</p>
+<div class="box shs" onclick="window.location.href='/shop-smart'">
+    <div class="shop-smart">
+        <img src="{{ url_for('static', filename='images/shopsmart.png') }}" class="saimg">
     </div>
 </div>
 <div class="box rg" onclick="window.location.href='/recipie-genie'">
@@ -26,14 +22,10 @@
         <img src="{{ url_for('static', filename='images/recipiegenie.png') }}" class="rgimg">
     </div>
 </div>
-<div class="box cc" onclick="window.location.href='/calorie-crunch'">
-    <div class="calorie-crunch">
-        <p>Calorie Crunch</p>
+<div class="box sa" onclick="window.location.href='/shelf-alert'">
+    <div class="shelf-alert">
+        <img src="{{ url_for('static', filename='images/alert.png') }}" class="saimg">
     </div>
 </div>
-<div class="box shs" onclick="window.location.href='/shop-smart'">
-    <div class="shop-smart">
-        <p>Shop Smart</p>
-    </div>
-</div>
+
 {% endblock %}
