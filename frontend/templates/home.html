@@ -1,39 +1,39 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<div class="box ss">
+<div class="box ss" onclick="window.location.href='/savysaver'">
     <div class="savvy-saver">
         <p>Savvy Saver</p>
     </div>
 </div>
-<div class="box sa">
+<div class="box sa" onclick="window.location.href='/shelf-alert'">
     <div class="shelf-alert">
         <p>Shelf Alert</p>
     </div>
 </div>
-<div class="box gg">
+<div class="box gg" onclick="window.location.href='/gourmet-goals'">
     <div class="gourmet-goals">
         <p>Gourmet Goals</p>
     </div>
 </div>
-<div class="box lwc">
+<div class="box lwc" onclick="window.location.href='/look-whats-chilling'">
     <div class="look-whts-chilling">
         <p>Look What's Chilling</p>
     </div>
 </div>
-<div class="box rg">
+<div class="box rg" onclick="window.location.href='/recipie-genie'">
     <div class="recipie-genie">
         <img src="{{ url_for('static', filename='images/recipiegenie.png') }}" class="rgimg">
     </div>
 </div>
-<div class="box cc">
+<div class="box cc" onclick="window.location.href='/calorie-crunch'">
     <div class="calorie-crunch">
         <p>Calorie Crunch</p>
     </div>
 </div>
-<div class="box shs">
+<div class="box shs" onclick="window.location.href='/shop-smart'">
     <div class="shop-smart">
         <p>Shop Smart</p>
     </div>
 </div>
-{% endblock container %}
+{% endblock %}
