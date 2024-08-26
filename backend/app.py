@@ -22,6 +22,34 @@ auth = firebase.auth()
 # Secret key for flash messages
 app.secret_key = 'secret'
 
+@app.route('/savysaver')
+def savysaver():
+    return render_template('savysaver.html')
+
+@app.route('/shelf-alert')
+def shelf_alert():
+    return render_template('shelf-alert.html')
+
+@app.route('/gourmet-goals')
+def gourmet_goals():
+    return render_template('gourmet-goals.html')
+
+@app.route('/look-whats-chilling')
+def look_whats_chilling():
+    return render_template('look-whats-chilling.html')
+
+@app.route('/recipie-genie')
+def recipie_genie():
+    return render_template('recipie-genie.html')
+
+@app.route('/calorie-crunch')
+def calorie_crunch():
+    return render_template('calorie-crunch.html')
+
+@app.route('/shop-smart')
+def shop_smart():
+    return render_template('shop-smart.html')
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
