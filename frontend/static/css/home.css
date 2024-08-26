@@ -13,19 +13,21 @@ body {
     justify-content: center;
     align-self: center;
     min-height: 100vh;
-    background-color: #FEF5DA;
+    background-color: white;
 }
 
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 96vh;
+    border-radius: 1rem;
     width: 78px;
-    background: #1d3146;
+    background: black;
     padding: 6px 14px;
     transition: all 0.5s ease;
     z-index: 1000;
+    margin: 1rem;
 }
 
 .sidebar.active {
@@ -69,7 +71,7 @@ body {
     padding-left: 10px;
     position: absolute;
     color: #fff;
-    left: 50%;
+    left: 43%;
     top: 6px;
     font-size: 20px;
     height: 50px;
@@ -94,6 +96,7 @@ body {
     margin: 0 5px;
     list-style: none;
     border-radius: 12px;
+    margin-left: -0.01rem;
 }
 
 .sidebar ul li .tooltip {
@@ -174,10 +177,10 @@ body {
 }
 
 .container {
-    padding-top: 70px; 
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 6px;
+    padding-top: 18px; 
+    padding-left: 30px;
+    padding-right: 15px;
+    padding-bottom: 12px;
     position: absolute;
     left: 78px; 
     height: calc(100vh); 
@@ -275,10 +278,10 @@ body {
 
 @media (max-width: 850px) {
     .container {
-        padding-top: 100px;
-        padding-left: 10px;
+        padding-top: 18px;
+        padding-left: 20px;
         padding-right: 10px;
-        padding-bottom: 10px; 
+        padding-bottom: 10px;
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
         grid-template-rows: minmax(auto, auto);
     }
@@ -291,8 +294,8 @@ body {
 
 @media(min-width: 471px) and (max-width:849px){
     .container{
-    padding-top: 100px;
-        padding-left: 10px;
+        padding-top: 18px;
+        padding-left: 20px;
         padding-right: 10px;
         padding-bottom: 10px; 
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
@@ -322,8 +325,8 @@ body {
     }
 
     .container {
-        padding-top: 80px;
-        left: 50px; 
+        padding-top: 18px;
+        padding-left: 20px; 
         width: calc(100% - 50px); 
     }
 
