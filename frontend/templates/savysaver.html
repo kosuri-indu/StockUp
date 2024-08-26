@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<div class="section">
+<div class="section savvy-saver">
     <h1>Savvy Saver</h1>
-    <p>Details about Savvy Saver go here...</p>
-    <a href="/home">Back to Home</a>
+    <p>Track your grocery savings, monitor spending, and discover ways to save more with Savvy Saver!</p>
+
+    <div class="savings-overview">
+        <h2>Monthly Savings Overview</h2>
+        <p>See how much you've saved this month by shopping smart.</p>
+        <!-- Example data -->
+        <ul>
+            <li>Total Spent: $200</li>
+            <li>Total Savings: $50</li>
+            <li>Top Savings Category: Dairy</li>
+        </ul>
+    </div>
+
+    <div class="savings-tips">
+        <h2>Tips to Save More</h2>
+        <p>Here are some personalized tips to help you cut costs on your next grocery trip:</p>
+        <ul>
+            <li>Check for discounts on your favorite items before you shop.</li>
+            <li>Buy in bulk for non-perishable goods.</li>
+            <li>Use store loyalty cards for additional savings.</li>
+        </ul>
+    </div>
+
+    <a href="/home" class="back-btn">Back to Home</a>
 </div>
 {% endblock %}

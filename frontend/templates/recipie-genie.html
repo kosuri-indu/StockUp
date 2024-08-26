@@ -1,9 +1,64 @@
 {% extends 'base.html' %}
 
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recipie.css') }}">
+{% endblock %}
+
 {% block container %}
-<div class="section">
-    <h1>recipie-genie</h1>
-    <p>Details about Savvy Saver go here...</p>
-    <a href="/home">Back to Home</a>
+<div class="section recipe-genie">
+    <h1>Recipie Genie</h1>
+    <p>Select the ingredients you have on hand, and we'll suggest some delicious recipes you can make!</p>
+
+    <div class="ingredient-selection">
+        <h2>Select Your Ingredients</h2>
+        <form id="ingredient-form">
+            <label class="ingredient-option">
+                <input type="checkbox" name="ingredients" value="Tomatoes"> Tomatoes
+            </label>
+            <label class="ingredient-option">
+                <input type="checkbox" name="ingredients" value="Onions"> Onions
+            </label>
+            <label class="ingredient-option">
+                <input type="checkbox" name="ingredients" value="Chicken"> Chicken
+            </label>
+            <label class="ingredient-option">
+                <input type="checkbox" name="ingredients" value="Garlic"> Garlic
+            </label>
+            <label class="ingredient-option">
+                <input type="checkbox" name="ingredients" value="Cheese"> Cheese
+            </label>
+            <button type="button" onclick="generateRecipes()">Find Recipes</button>
+        </form>
+    </div>
+
+    <div class="recipe-suggestions">
+        <h2>Possible Recipes</h2>
+        <ul id="recipe-list">
+            <!-- Suggested recipes will appear here -->
+        </ul>
+    </div>
+
+    <a href="/home" class="back-btn">Back to Home</a>
 </div>
+
+<script>
+function generateRecipes() {
+    const selectedIngredients = Array.from(document.querySelectorAll('input[name="ingredients"]:checked'))
+        .map(checkbox => checkbox.value);
+
+    const recipeList = document.getElementById('recipe-list');
+    recipeList.innerHTML = ''; // Clear previous suggestions
+
+    // Example logic for generating recipes
+    if (selectedIngredients.includes('Chicken') && selectedIngredients.includes('Garlic')) {
+        recipeList.innerHTML += '<li>Garlic Chicken Stir-Fry</li>';
+    }
+    if (selectedIngredients.includes('Tomatoes') && selectedIngredients.includes('Cheese')) {
+        recipeList.innerHTML += '<li>Tomato & Cheese Pizza</li>';
+    }
+    if (selectedIngredients.length === 0) {
+        recipeList.innerHTML = '<li>No ingredients selected. Please choose some to get recipes!</li>';
+    }
+}
+</script>
 {% endblock %}

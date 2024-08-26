@@ -4,107 +4,128 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
     <title>StockUp | Your Smart Fridge Assistant</title>
     <style>
-        
-.header__image::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  max-width: 550px;
-  aspect-ratio: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url("{{url_for('static', filename='images/header-bg.png')}}");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border-radius: 100%;
-  opacity: 0.5;
-  z-index: -1;
-}
+        .page-transition {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: opacity s ease-in-out, transform 1s ease-in-out;
+          transform: translateY(20px);
+        }
 
+        .page-transition.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .page-transition.fade-out {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        .header__image::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          max-width: 550px;
+          aspect-ratio: 1;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-image: url("{{url_for('static', filename='images/header-bg.png')}}");
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          border-radius: 100%;
+          opacity: 0.5;
+          z-index: -1;
+        }
     </style>
 </head>
 <body>
     {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-      <div class="flash-message {{ category }}">{{ message }}</div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
 
-    <nav>
-        <div class="nav__header">
-            <div class="nav__logo">
-                <a href="#">Stock<span>Up</span>.</a>
-            </div>
-            <div class="nav__menu__btn" id="menu-btn">
-                <span><i class="ri-menu-line"></i></span>
-            </div>
-        </div>
-        <ul class="nav__links" id="nav-links">
-            <li><a href="#">Home</a></li>
-        </ul>
-        <div class="nav__btns">
-            <button class="btn sign__up" id="signUpBtn">Get Started</button>
-        </div>
-    </nav>
-    <header class="header__container">
-        <div class="header__image">
-            <div class="header__image__card header__image__card-1">
-                <span><i class="ri-key-line"></i></span>
-                Smart Inventory
-            </div>
-            <div class="header__image__card header__image__card-2">
-                <span><i class="ri-calendar-2-line"></i></span>
-                Expiration Tracking
-            </div>
-            <div class="header__image__card header__image__card-3">
-                <span><i class="ri-map-pin-line"></i></span>
-                Recipe Suggestions
-            </div>
-            <div class="header__image__card header__image__card-4">
-                <span><i class="ri-guide-line"></i></span>
-                Shopping List
-            </div>
-            <img src="{{ url_for('static', filename='images/robo.png') }}" alt="header" />
-        </div>
-        <div class="header__content">
-            <h1>LET'S STOCK UP!<br />THE <span>FUTURE</span> OF FOOD MANAGEMENT</h1>
-            <p>
-                Discover a smarter way to manage your fridge with StockUp. Our app
-                helps you keep track of your inventory, monitor expiration dates,
-                find new recipes, and create shopping lists. Your journey to a more
-                organized kitchen starts here!
-            </p>
-            <form action="/">
-                <div class="input__row">
-                    <div class="input__group">
-                        <h5>Find Recipes</h5>
-                        <div>
-                            <span><i class="ri-search-line"></i></span>
-                            <input type="text" placeholder="Enter ingredients" />
-                        </div>
-                    </div>
-                    <div class="input__group">
-                        <h5>Manage Inventory</h5>
-                        <div>
-                            <span><i class="ri-list-check-line"></i></span>
-                            <input type="text" placeholder="Check your fridge" />
-                        </div>
-                    </div>
+    <div id="page-container" class="page-transition active">
+        <nav>
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="#">Stock<span>Up</span>.</a>
                 </div>
-                <button type="submit">Explore</button>
-            </form>
-            <div class="bar">
-                Copyright © 2024 StockUp. All rights reserved.
+                <div class="nav__menu__btn" id="menu-btn">
+                    <span><i class="ri-menu-line"></i></span>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="#">Home</a></li>
+            </ul>
+            <div class="nav__btns">
+                <button class="btn sign__up" id="signUpBtn">Get Started</button>
+            </div>
+        </nav>
+        <div class="header__container">
+            <div class="header__image">
+                <div class="header__image__card header__image__card-1">
+                    <span><i class="ri-key-line"></i></span>
+                    Smart Inventory
+                </div>
+                <div class="header__image__card header__image__card-2">
+                    <span><i class="ri-calendar-2-line"></i></span>
+                    Expiration Tracking
+                </div>
+                <div class="header__image__card header__image__card-3">
+                    <span><i class="ri-map-pin-line"></i></span>
+                    Recipe Suggestions
+                </div>
+                <div class="header__image__card header__image__card-4">
+                    <span><i class="ri-guide-line"></i></span>
+                    Shopping List
+                </div>
+            </div>
+
+            <div class="header__content">
+                <h1>LET'S STOCK UP!<br />THE <span>FUTURE</span> OF FOOD MANAGEMENT</h1>
+                <p>
+                    Discover a smarter way to manage your fridge with StockUp. Our app
+                    helps you keep track of your inventory, monitor expiration dates,
+                    find new recipes, and create shopping lists. Your journey to a more
+                    organized kitchen starts here!
+                </p>
+                <form action="/">
+                    <div class="input__row">
+                        <div class="input__group">
+                            <h5>Find Recipes</h5>
+                            <div>
+                                <span><i class="ri-search-line"></i></span>
+                                <input type="text" placeholder="Enter ingredients" />
+                            </div>
+                        </div>
+                        <div class="input__group">
+                            <h5>Manage Inventory</h5>
+                            <div>
+                                <span><i class="ri-list-check-line"></i></span>
+                                <input type="text" placeholder="Check your fridge" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">Explore</button>
+                </form>
+                <div class="bar">
+                    Copyright © 2024 StockUp. All rights reserved.
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+    
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -128,10 +149,27 @@
 
             if (signUpBtn) {
                 signUpBtn.addEventListener("click", () => {
-                    window.location.href = "/signup";  // Ensure this matches your Flask route
+                    transitionToPage("/signup");  // Ensure this matches your Flask route
                 });
             } else {
                 console.error("Sign Up button not found.");
+            }
+
+            function transitionToPage(newContentUrl) {
+                const container = document.getElementById('page-container');
+                container.classList.add('fade-out');
+
+                container.addEventListener('transitionend', function onTransitionEnd() {
+                    container.removeEventListener('transitionend', onTransitionEnd);
+                    
+                    fetch(newContentUrl)
+                        .then(response => response.text())
+                        .then(html => {
+                            container.innerHTML = html;
+                            container.classList.remove('fade-out');
+                            container.classList.add('active');
+                        });
+                });
             }
 
             const scrollRevealOption = {

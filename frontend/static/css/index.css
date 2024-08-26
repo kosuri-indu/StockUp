@@ -1,5 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* Base styles for transitions */
+.page-transition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(20px);
+}
+
+/* Active page */
+.page-transition.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade-out effect for the old page */
+.page-transition.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 :root {
   --primary-color-start: #25C2F6; /* Start color for gradient */
   --primary-color-end: #081F4B;   /* End color for gradient */
@@ -26,8 +50,7 @@ html, body {
 img {
   display: block;
   width: 100%;
-  height: auto; 
-  
+  height: auto;
 }
 
 a {
@@ -102,11 +125,12 @@ nav {
   padding: 2rem;
   display: grid;
   gap: 2rem;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .header__image {
   position: relative;
+  height: 500px; /* Adjust height as needed */
 }
 
 .header__image img {
@@ -123,7 +147,7 @@ nav {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-dark);
-  background: linear-gradient(to right, var(--white), var(--white)); /* Gradient background */
+  background: var(--white); /* Solid background for better visibility */
   white-space: nowrap;
   border-radius: 5px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
@@ -136,28 +160,25 @@ nav {
   color: var(--primary-color-end);
 }
 
+/* Adjusted positions */
 .header__image__card-1 {
-  top: 35%;
-  left: 0;
-  transform: translate(-50%, -50%);
+  top: 25%;
+  left: -16%;
 }
 
 .header__image__card-2 {
-  top: 1%;
-  right: 2rem;
-  transform: translateY(-50%);
+  top: -2%;
+  right: 15%;
 }
 
 .header__image__card-3 {
-  top: 65%;
-  left: 0;
-  transform: translateY(-50%);
+  bottom: 30%;
+  left: 5%;
 }
 
 .header__image__card-4 {
-  top: 70%;
-  right: 0;
-  transform: translateY(-50%);
+  bottom: 20%;
+  right: 5%;
 }
 
 .header__content h1 {
