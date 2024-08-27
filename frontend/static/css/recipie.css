@@ -1,0 +1,90 @@
+/* General styling for the recipe genie section */
+.recipe-genie {
+    padding: 20px;
+    text-align: center;
+}
+
+.ingredient-selection {
+    margin-bottom: 20px;
+}
+
+.ingredient-option {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 20px;
+}
+
+.carousel-item {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-width: 200px;
+    text-align: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.recipe-details {
+    margin-top: 10px;
+}
+
+.view-recipe-btn, .watch-video-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.view-recipe-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.watch-video-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ff5722;
+    color: white;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background-color: #e64a19;
+}
+    

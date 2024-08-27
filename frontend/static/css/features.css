@@ -1,14 +1,19 @@
-/*Fridge Peek*/
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 .fridge {
     background-color: #ffc84e;
     text-align: center;
     border-radius: 1rem;
     padding: 2rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .fridge h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .fridge p {
@@ -16,39 +21,88 @@
     margin-bottom: 2rem;
 }
 
-.fridge a {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: #007bff;
+.back-home-button {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    background-color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
     text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
-.fridge a:hover {
-    text-decoration: underline;
+.back-home-button:hover {
+    background-color: black;
+    color: white;
 }
 
-.grid-container {
+.shelf-container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+}
+
+.shelf {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0;
+    position: relative;
+    background-color: #e0b378;
+    border-radius: 0.5rem;
+    border: 0.5rem solid #8B4513; /* Thick outer border for the shelf */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow for depth */
+    overflow: hidden;
 }
 
 .grid-item {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    padding: 1rem;
+    position: relative;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    padding: 0.3rem;
+    border-right: 0.2rem solid #8B4513; /* Vertical dividers */
+    border-bottom: 0.2rem solid #8B4513; /* Horizontal dividers */
 }
 
-.grid-item:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
+.grid-item:nth-child(6n) {
+    border-right: none; /* Remove right border for last item in each row */
 }
+
+.grid-item:nth-last-child(-n+6) {
+    border-bottom: none; /* Remove bottom border for last row */
+}
+
+.grid-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 1rem;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.item-info {
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+/* Adding subtle gradients for the shelf */
+.shelf::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(to right, #8B4513, #A0522D);
+    border-radius: 1rem;
+    z-index: -1;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Shadow to create a raised effect */
+}
+
 
 
 /*Recipe Genie*/

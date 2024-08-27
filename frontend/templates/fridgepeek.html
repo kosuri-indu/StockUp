@@ -2,22 +2,100 @@
 
 {% block pagecontent %}
 <div class="pagecontent">
-    <div class="fridge">
-        <h1>Welcome to Your Digital Fridge</h1>
-        <p>Explore the fresh and delicious items we have in store for you. Keep track of your groceries and never let anything go to waste!</p>
-        <a href="/home" class="back-home-button">← Back to Home</a>
-        <div class="grid-container">
-            <!-- Example items, you can dynamically generate these -->
-            <div class="grid-item">Indian Tomato</div>
-            <div class="grid-item">Carrot</div>
-            <div class="grid-item">Curry Leaves</div>
-            <div class="grid-item">Coriander</div>
-            <div class="grid-item">Pani Puri Masala</div>
-            <div class="grid-item">Pav Bhaji Masala</div>
-            <div class="grid-item">Onion</div>
-            <div class="grid-item">Eggs</div>
+<div class="fridge">
+    <button><a href="/home" class="back-home-button">←</a></button>
+    <h1>Welcome to Your Digital Fridge</h1>
+    <p>Explore the fresh and delicious items we have in store for you. Keep track of your groceries and never let anything go to waste!</p>
+    <div class="shelf-container">
+        <!-- Shelf -->
+        <div class="shelf">
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Indian Tomato">
+                <div class="item-info">
+                    <p>Indian Tomato</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='images/header-bg.png') }}" alt="Carrot">
+                <div class="item-info">
+                    <p>Carrot</p>
+                </div>
+            </div>
             <!-- Add more items as needed -->
         </div>
-    </div>      
+        <!-- Add more shelves as needed -->
+    </div>
+    </div>  
 </div>
 {% endblock %}
+
+<style>
+
+
+</style>

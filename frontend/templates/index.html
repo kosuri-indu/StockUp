@@ -1,211 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
-    
-    <title>StockUp | Your Smart Fridge Assistant</title>
-    <style>
-        /* Page Transition CSS */
-        .page-transition {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .page-transition.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .page-transition.fade-out {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-
-        /* Header image styles */
-        .header__image::before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            max-width: 550px;
-            aspect-ratio: 1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-image: url("{{url_for('static', filename='images/header-bg.png')}}");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            border-radius: 100%;
-            opacity: 0.5;
-            z-index: -1;
-        }
-
-        /* Header content styles */
-        .header__container {
-            padding: 60px 20px 40px; /* Increased top padding for spacing */
-        }
-
-        /* New Section Styles */
-        .info-section {
-            padding: 40px 20px;
-            text-align: center;
-            background: #f5f5f5; /* Light background for contrast */
-            margin-top: 80px; /* Ensure space between header and new sections */
-        }
-
-        .info-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .info-section p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .info-card {
-            display: inline-block;
-            width: 300px;
-            margin: 0 10px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background: #fff;
-            transition: transform 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .info-card i {
-            font-size: 2rem;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/index.css') }}">
 </head>
 <body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-        <div class="flash-message {{ category }}">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-    {% endwith %}
-
-    <div id="page-container" class="page-transition active">
-        <nav>
-            <div class="nav__header">
-                <div class="nav__logo">
-                    <a href="#">Stock<span>Up</span>.</a>
-                </div>
-                <div class="nav__menu__btn" id="menu-btn">
-                    <span><i class="ri-menu-line"></i></span>
-                </div>
-            </div>
-            <ul class="nav__links" id="nav-links">
-                <li><a href="#">Home</a></li>
+    <header>
+        <figure class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="xx">
+        </figure>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">StockUp</a></li>
             </ul>
-            <div class="nav__btns">
-                <button class="btn sign__up" id="signUpBtn">Get Started</button>
-            </div>
         </nav>
-        <div class="header__container">
-            <div class="header__image">
-                <div class="header__image__card header__image__card-1">
-                    <span><i class="ri-key-line"></i></span>
-                    Smart Inventory
-                </div>
-                <div class="header__image__card header__image__card-2">
-                    <span><i class="ri-calendar-2-line"></i></span>
-                    Expiration Tracking
-                </div>
-                <div class="header__image__card header__image__card-3">
-                    <span><i class="ri-map-pin-line"></i></span>
-                    Recipe Suggestions
-                </div>
-                <div class="header__image__card header__image__card-4">
-                    <span><i class="ri-guide-line"></i></span>
-                    Shopping List
-                </div>
-            </div>
+        <button class = "btn" id ="GetStarted">Get Started</button>
+    </header>
 
-            <div class="header__content">
-                <h1>LET'S STOCK UP!<br />THE <span>FUTURE</span> OF FOOD MANAGEMENT</h1>
-                <p>
-                    Discover a smarter way to manage your fridge with StockUp. Our app
-                    helps you keep track of your inventory, monitor expiration dates,
-                    find new recipes, and create shopping lists. Your journey to a more
-                    organized kitchen starts here!
-                </p>
-                <form action="/">
-                    <div class="input__row">
-                        <div class="input__group">
-                            <h5>Find Recipes</h5>
-                            <div>
-                                <span><i class="ri-search-line"></i></span>
-                                <input type="text" placeholder="Enter ingredients" />
-                            </div>
-                        </div>
-                        <div class="input__group">
-                            <h5>Manage Inventory</h5>
-                            <div>
-                                <span><i class="ri-list-check-line"></i></span>
-                                <input type="text" placeholder="Check your fridge" />
-                            </div>
+    <main>
+        <section class="carousel next">
+            <div class="list">
+                <article class="item other_1">
+                    <div class="main-content" 
+                    style="background-color: #ffc84e;">
+                        <div class="content">
+                            <h2>Fridge Peek</h2>
+                            <p class="description">
+                                Dive into the fun of keeping track of your fridge’s contents with Fridge Peek! This lively feature offers a dynamic view of your inventory, so you always know what’s on hand. Make fridge management enjoyable and keep your meals organized with ease.
+                            </p>
+                            
                         </div>
                     </div>
-                    <button type="submit">Explore</button>
-                </form>
-                <div class="bar">
-                    Copyright © 2024 StockUp. All rights reserved.
-                </div>
+                    <figure class="image">
+                        <img src="{{ url_for('static', filename='images/fridge1.png') }}" alt="xx">
+                        <figcaption>Fridge Peek</figcaption>
+                    </figure>
+                </article>
+                <article class="item active">
+                    <div class="main-content" 
+                    style="background-color: #3b4677;">
+                        <div class="content">
+                            <h2>Shelf-Alert</h2>
+                            <p class="description">
+                                Be the ultimate food guardian with Shelf-Alert. This cheerful feature alerts you before items expire, so you can use up your food in time and keep waste at bay. Enjoy peace of mind with timely freshness reminders and a well-organized kitchen.
+                                </p>
+                            
+                        </div>
+                    </div>
+                    <figure class="image">
+                        <img src="{{ url_for('static', filename='images/allert.png') }}" alt="xx">
+                        <figcaption>Shelf alert</figcaption>
+                    </figure>
+                </article>
+                <article class="item other_2">
+                    <div class="main-content" 
+                    style="background-color: #feaeae;">
+                        <div class="content">
+                            <h2>Tasty Treasures</h2>
+                            <p class="description">
+                                Safeguard your favorite recipes and culinary creations in one secure place. Dish Vault makes it easy to store and retrieve your top dishes whenever you need them.
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <figure class="image">
+                        <img src="{{ url_for('static', filename='images/goals.png') }}" alt="xx">
+                        <figcaption>Tasty Treasures</figcaption>
+                    </figure>
+                </article>
+                <article class="item">
+                    <div class="main-content" 
+                    style="background-color: #dedfe1;">
+                        <div class="content">
+                            <h2>Recipie Genie</h2>
+                            
+                            <p class="description">
+                                Let your meals shine with Recipe Genie! This vibrant feature illuminates new recipe ideas based on what’s in your fridge, making every meal an opportunity for culinary delight. Spark your creativity and discover new flavors with a dash of brilliance.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="image">
+                        <img src="{{ url_for('static', filename='images/4.png') }}" alt="xx">
+                        <figcaption>Recipie Genie</figcaption>
+                    </figure>
+                </article>
+                <article class="item">
+                    <div class="main-content" 
+                    style="background-color: #ff6a71;">
+                        <div class="content">
+                            <h2>Shop Smart</h2>
+                            
+                            <p class="description">
+                                Let your meals shine with Recipe Genie! This vibrant feature illuminates new recipe ideas based on what’s in your fridge, making every meal an opportunity for culinary delight. Spark your creativity and discover new flavors with a dash of brilliance.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="image">
+                        <img src="{{ url_for('static', filename='images/5.svg') }}" alt="xx">
+                        <figcaption>Shop Smart</figcaption>
+                    </figure>
+                </article>
             </div>
-        </div>
-
-        <!-- New Info Sections -->
-        <div class="info-section" id="info-sections">
-            <h2>Explore Our Features</h2>
-            <div class="info-card">
-                <i class="ri-fridge-line"></i>
-                <h3>Smart Inventory</h3>
-                <p>Keep track of everything in your fridge with ease. Our smart inventory system updates automatically and helps you manage your food better.</p>
+            <div class="arrows">
+                <button id="prev"></button>
+                <button id="next"></button>
             </div>
-            <div class="info-card">
-                <i class="ri-time-line"></i>
-                <h3>Expiration Tracking</h3>
-                <p>Never worry about expired food again. Our expiration tracking system sends you timely notifications so you can stay fresh.</p>
-            </div>
-            <div class="info-card">
-                <i class="ri-recipe-line"></i>
-                <h3>Recipe Suggestions</h3>
-                <p>Looking for new recipes? Our app suggests recipes based on what you have in your fridge, making meal planning a breeze.</p>
-            </div>
-            <div class="info-card">
-                <i class="ri-list-check-line"></i>
-                <h3>Shopping List</h3>
-                <p>Create and manage your shopping list effortlessly. Keep track of what you need and never miss an item again.</p>
-            </div>
-            <div class="info-card">
-                <i class="ri-store-line"></i>
-                <h3>Find Stores</h3>
-                <p>Find local stores and markets easily. Our app helps you locate where you can buy what you need quickly and efficiently.</p>
-            </div>
-        </div>
-    </div>
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
+        </section>
+    </main>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
