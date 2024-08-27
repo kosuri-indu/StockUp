@@ -6,6 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/recipie.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/paging.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
@@ -63,13 +64,17 @@
             </li>
         </ul>
     </div>
-    <!-- <div class="header">
-        <h1>StockUp</h1> 
-    </div> -->
+
     <div class="container">
         {% block container %}
-            
+        
         {% endblock container %}
+    </div>
+
+    <div class="pagecontent">
+        {% block pagecontent %}
+        
+        {% endblock pagecontent %}
     </div>
 
     <script>
