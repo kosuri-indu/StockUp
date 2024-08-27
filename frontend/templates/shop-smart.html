@@ -1,9 +1,71 @@
 {% extends 'base.html' %}
 
-{% block container %}
-<div class="section">
-    <h1>Shop Smart</h1>
-    <p>Details about Savvy Saver go here...</p>
-    <a href="/home">Back to Home</a>
+{% block pagecontent %}
+<div class="pagecontent">
+    <div class="text-container">
+        <div class="constant">ADD</div>
+        <div class="typing" id="typedText"></div>
+    </div>
+
+    <div class="todo-container">
+        <ul class="todo-list">
+            <li class="todo-item">
+                <input type="checkbox" id="task1">
+                <label for="task1">Spinach</label>
+            </li>
+            <li class="todo-item">
+                <input type="checkbox" id="task2">
+                <label for="task2">Grapes</label>
+            </li>
+            <li class="todo-item">
+                <input type="checkbox" id="task3">
+                <label for="task3">Apple</label>
+            </li>
+        </ul>
+        <form class="todo-form">
+            <input type="text" id="new-task" placeholder="Add new task" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div class="lowerbox">
+        <img src="{{ url_for('static', filename='images/shoppingGirl.png') }}" class="image">
+    </div>
+
+    <script>
+        const words = ["MILK", "BREAD", "TOMATOES"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        const typingSpeed = 150;
+        const erasingSpeed = 100;
+        const newWordDelay = 1000;
+        const cursorBlinkDelay = 500;
+
+        const typedTextElement = document.getElementById('typedText');
+
+        function type() {
+            if (charIndex < words[wordIndex].length) {
+                typedTextElement.textContent += words[wordIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else {
+                setTimeout(erase, newWordDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingSpeed);
+            } else {
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, cursorBlinkDelay);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(type, cursorBlinkDelay);
+        });
+    </script>
 </div>
 {% endblock %}
