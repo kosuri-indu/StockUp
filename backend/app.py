@@ -31,7 +31,7 @@ def gourmet_goals():
     return render_template('gourmet-goals.html')
 
 @app.route('/fridgepeek')
-def look_whats_chilling():
+def fridgepeek():
     return render_template('fridgepeek.html')
 
 @app.route('/recipie-genie')
