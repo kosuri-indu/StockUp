@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
     <title>Home</title>
+    {% endblock title %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/recipie.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/paging.css') }}">
@@ -28,7 +30,7 @@
                 <span class="tooltip">Home</span>
             </li>
             <li>
-                <a href="/look-whats-chilling">
+                <a href="/fridgepeek">
                     <i class='bx bx-fridge'></i>
                     <span class="links_name">Fridge Peek</span>
                 </a>

@@ -284,6 +284,7 @@ body {
         padding-bottom: 10px;
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
         grid-template-rows: minmax(auto, auto);
+        
     }
     .container .box {
         grid-column: unset !important;
