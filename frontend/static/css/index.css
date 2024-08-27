@@ -141,7 +141,7 @@ header nav{
     top: 50px;
     left: 50px;
     content: '';
-    background-color: red;
+    background-color: white;
     width: 400px;
     height: 300px;
     z-index: 10;

@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 
-{% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/recipie.css') }}">
-    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/paging.css') }}">
-{% endblock %}
-
 {% block pagecontent %}
+<div class="pagecontent">
 <div class="section recipe-genie">
     <h1>Recipe Genie</h1>
     <p>Select the ingredients you have on hand, and we'll suggest some delicious recipes you can make!</p>
@@ -43,7 +39,7 @@
 
     <a href="/home" class="back-btn">Back to Home</a>
 </div>
-
+</div>
 <script>
 function generateRecipes() {
     const selectedIngredients = Array.from(document.querySelectorAll('input[name="ingredients"]:checked'))
@@ -91,4 +87,5 @@ function watchVideo(recipeName) {
     // Implement logic for showing a video or redirect to a video page
 }
 </script>
+
 {% endblock %}
