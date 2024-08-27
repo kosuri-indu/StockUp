@@ -1,8 +1,53 @@
 /*Fridge Peek*/
-.fridge{
+.fridge {
     background-color: #ffc84e;
-    height: 95.5vh;
+    text-align: center;
     border-radius: 1rem;
+    padding: 2rem;
+}
+
+.fridge h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.fridge p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.fridge a {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fridge a:hover {
+    text-decoration: underline;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.grid-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.grid-item:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
 }
 
 
