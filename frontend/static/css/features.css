@@ -153,9 +153,8 @@ body {
     font-family: 'Poppins';
     font-size: 5vw;
     display: flex;
-    align-items: center; /* Center align the content vertically */
+    align-items: flex-start;
     padding-left: 20px; 
-    height: auto; /* Ensure the container height adjusts to the content */
 }
 
 .constant {
@@ -166,6 +165,7 @@ body {
 
 
 .typing {
+    display: inline-block;
     border-right: 2px solid grey;
     white-space: nowrap;
     overflow: hidden;
@@ -183,35 +183,37 @@ body {
     animation: blink 1s step-end infinite;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
     .text-container {
-        font-size: 12vw; /* Larger font size for smaller screens */
+        font-size: 55.75px; /* Larger font size for smaller screens */
     }
 }
 
-.pagecontent {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align content horizontally */
-    justify-content: center; /* Center align content vertically */
-    /* position: relative; */ /* Remove this if it’s causing issues */
-    padding: 20px; /* Add padding if needed */
+@media (max-width: 470px) {
+    .text-container {
+        font-size: 8vw; /* Larger font size for smaller screens */
+    }
 }
 
+
+
 .image {
+    position: absolute; /* Change from fixed to absolute */
+    padding-left: 50px;
+    bottom: 0;
+    right: 0;  
     margin: 10px;
-    max-width: 100%; /* Ensure the image is responsive */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure the image does not overflow the container */
+    max-height: 100%; /* Ensure the image fits within the height */
 }
+
 
 .todo-container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Make the todo container responsive */
-    max-width: 300px;
+    width: 300px;
     padding: 20px;
-    margin: 20px auto; /* Add margin for spacing */
 }
 
 .todo-list {
