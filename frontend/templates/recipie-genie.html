@@ -2,11 +2,12 @@
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/recipie.css') }}">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/paging.css') }}">
 {% endblock %}
 
 {% block pagecontent %}
 <div class="section recipe-genie">
-    <h1>Recipie Genie</h1>
+    <h1>Recipe Genie</h1>
     <p>Select the ingredients you have on hand, and we'll suggest some delicious recipes you can make!</p>
 
     <div class="ingredient-selection">
@@ -33,9 +34,11 @@
 
     <div class="recipe-suggestions">
         <h2>Possible Recipes</h2>
-        <ul id="recipe-list">
-            <!-- Suggested recipes will appear here -->
-        </ul>
+        <div class="carousel">
+            <div class="carousel-inner" id="recipe-list">
+                <!-- Suggested recipes will appear here -->
+            </div>
+        </div>
     </div>
 
     <a href="/home" class="back-btn">Back to Home</a>
@@ -51,14 +54,41 @@ function generateRecipes() {
 
     // Example logic for generating recipes
     if (selectedIngredients.includes('Chicken') && selectedIngredients.includes('Garlic')) {
-        recipeList.innerHTML += '<li>Garlic Chicken Stir-Fry</li>';
+        recipeList.innerHTML += `
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/garlic_chicken.jpg') }}" alt="Garlic Chicken">
+                <div class="recipe-details">
+                    <h3>Garlic Chicken Stir-Fry</h3>
+                    <button class="view-recipe-btn" onclick="viewRecipe('Garlic Chicken Stir-Fry')">View Recipe</button>
+                    <button class="watch-video-btn" onclick="watchVideo('Garlic Chicken Stir-Fry')">Watch Video</button>
+                </div>
+            </div>`;
     }
     if (selectedIngredients.includes('Tomatoes') && selectedIngredients.includes('Cheese')) {
-        recipeList.innerHTML += '<li>Tomato & Cheese Pizza</li>';
+        recipeList.innerHTML += `
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/tomato_pizza.jpg') }}" alt="Tomato & Cheese Pizza">
+                <div class="recipe-details">
+                    <h3>Tomato & Cheese Pizza</h3>
+                    <button class="view-recipe-btn" onclick="viewRecipe('Tomato & Cheese Pizza')">View Recipe</button>
+                    <button class="watch-video-btn" onclick="watchVideo('Tomato & Cheese Pizza')">Watch Video</button>
+                </div>
+            </div>`;
     }
     if (selectedIngredients.length === 0) {
-        recipeList.innerHTML = '<li>No ingredients selected. Please choose some to get recipes!</li>';
+        recipeList.innerHTML = '<div class="carousel-item">No ingredients selected. Please choose some to get recipes!</div>';
     }
+}
+
+// Example functions for handling recipe and video actions
+function viewRecipe(recipeName) {
+    alert('Viewing the recipe for ' + recipeName);
+    // You can implement a modal or redirect here to show the full recipe
+}
+
+function watchVideo(recipeName) {
+    alert('Watching video tutorial for ' + recipeName);
+    // Implement logic for showing a video or redirect to a video page
 }
 </script>
 {% endblock %}
