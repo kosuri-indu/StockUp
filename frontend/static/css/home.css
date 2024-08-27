@@ -82,7 +82,7 @@ body {
 }
 
 .sidebar.active #btn {
-    left: 90%;
+    left: 90%;  
 }
 
 .sidebar ul {
@@ -326,12 +326,14 @@ body {
 
     .container {
         padding-top: 18px;
-        padding-left: 20px; 
+        padding-left: 0px; 
+        padding-right: 1px;
         width: calc(100% - 50px); 
     }
 
     .sidebar.active ~ .container {
         left: 200px; 
+        padding-bottom: 1rem;
         width: calc(100% - 200px); 
     }
 }
