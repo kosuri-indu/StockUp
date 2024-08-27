@@ -16,7 +16,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+<<<<<<< HEAD
     overflow: hidden;
+=======
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+>>>>>>> 34c801a5f5a601547333bdfda3e2ddeaae457111
 }
 
 .sidebar {
@@ -289,6 +294,10 @@ body {
         padding: 18px 10px;
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
         grid-template-rows: minmax(auto, auto);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34c801a5f5a601547333bdfda3e2ddeaae457111
     }
     .container .box {
         grid-column: unset !important;

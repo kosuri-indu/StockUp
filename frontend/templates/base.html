@@ -77,12 +77,10 @@
         {% endblock container %}
     </div>
 
-    <div class="pagecontent">
-        {% block pagecontent %}
+    {% block pagecontent %}
         
-        {% endblock pagecontent %}
-    </div>
-
+    {% endblock pagecontent %}
+    
     <script>
         let btn = document.querySelector("#btn");
         let sidebar = document.querySelector(".sidebar");
