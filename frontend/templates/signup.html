@@ -4,35 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <style>
-      
+        /* Page Transition CSS */
+        .page-transition {
+            opacity: 1;
+            transform: translateX(0);  /* Initial position */
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .slide-out {
+            opacity: 0;
+            transform: translateX(-100%); /* Move out */
+            background: linear-gradient(135deg, white, #FFB703); /* Gradient effect */
+        
+        } 
+        
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
-<body>
+<body class="page-transition">
+
     <script>
-        setTimeout(function() {
-          const flashMessages = document.querySelectorAll('.flash-message-container .alert');
-          flashMessages.forEach(function(message) {
-            message.style.display = 'none';
-          });
-        }, 3000);  // Hides after 3 seconds
-      </script>
-      
+      setTimeout(function() {
+        const flashMessages = document.querySelectorAll('.flash-message-container .alert');
+        flashMessages.forEach(function(message) {
+          message.style.display = 'none';
+        });
+      }, 3000);  // Hides after 3 seconds
+    </script>
+
     {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    <div class="flash-message-container">
-      {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">
-          {{ message }}
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
-{% endwith %}
+    {% if messages %}
+      <div class="flash-message-container">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% endwith %}
 
-
-    <div class="auth-container">
+    <div id="page-container" class="auth-container">
         <div class="auth-card">
             <h2 class="auth-title">Sign Up</h2>
             <form method="POST" action="/signup">
@@ -46,12 +59,37 @@
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="auth-button">Sign Up</button>
-                <p class="auth-link">Already have an account? <a href="/signin">Sign In</a></p>
+                <p class="auth-link">Already have an account? <a id="inbtn" href="/signin">Sign In</a></p>
             </form>
         </div>
         <div class="auth-image">
             <img src="{{ url_for('static', filename='images/signup.svg') }}" alt="Sign Up Image">
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inbtn = document.getElementById("inbtn");
+
+            if (inbtn) {
+                inbtn.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    transitionToPage("/signin");
+                });
+            }
+
+            function transitionToPage(url) {
+                const body = document.body;
+                // Start horizontal sliding transition
+                body.classList.add('slide-out');
+
+                // After the transition, redirect to the new page
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 200);  // Matches the CSS transition duration (0.5s)
+            }
+        });
+    </script>
+
 </body>
 </html>
