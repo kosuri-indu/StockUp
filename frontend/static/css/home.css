@@ -2,23 +2,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Coming+Soon&family=Cuprum:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Coming+Soon&family=Cuprum:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Indie+Flower&display=swap");
+
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    font-family: "Poppins", sans-serif;
+    background-color: white;
     display: flex;
     justify-content: center;
-    align-self: center;
+    align-items: center;
     min-height: 100vh;
-<<<<<<< HEAD
     overflow: hidden;
-=======
-    font-family: "Poppins", sans-serif;
->>>>>>> ff16e9d82fa78d56e01d4b8149d526a50d861295
-    background-color: white;
 }
 
 .sidebar {
@@ -48,12 +46,14 @@ body {
     opacity: 0;
     pointer-events: none;
 }
-.pagecontent{
+
+.pagecontent {
     overflow-y: auto;
 }
+
 .sidebar.active .logo_content .logo {
     opacity: 1;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .sidebar .logo_content .logo img {
@@ -89,7 +89,7 @@ body {
 }
 
 .sidebar.active #btn {
-    left: 90%;  
+    left: 90%;
 }
 
 .sidebar ul {
@@ -103,7 +103,6 @@ body {
     margin: 0 5px;
     list-style: none;
     border-radius: 12px;
-    margin-left: -0.01rem;
 }
 
 .sidebar ul li .tooltip {
@@ -167,11 +166,11 @@ body {
 }
 
 .header {
-    width: 100%; 
+    width: 100%;
     padding: 6px 6px;
-    box-sizing: border-box; 
-    position: absolute; 
-    top: 0; 
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
     z-index: 1;
     color: #2F1625;
 }
@@ -179,18 +178,18 @@ body {
 .header h1 {
     font-family: "Abril Fatface";
     font-size: 2.5em;
-    text-align: right; 
-    margin: 0; 
+    text-align: right;
+    margin: 0;
 }
 
 .container {
-    padding-top: 18px; 
+    padding-top: 18px;
     padding-left: 30px;
     padding-right: 15px;
     padding-bottom: 12px;
     position: absolute;
-    left: 78px; 
-    height: calc(100vh); 
+    left: 78px;
+    height: calc(100vh - 2rem);
     width: calc(100% - 78px);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -199,13 +198,13 @@ body {
     grid-gap: 10px;
     transition: all 0.5s ease;
     z-index: 1;
-    overflow-y: scroll; 
-    box-sizing: border-box; 
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .sidebar.active ~ .container {
-    left: 240px; 
-    width: calc(100% - 240px); 
+    left: 240px;
+    width: calc(100% - 240px);
 }
 
 .container .box {
@@ -215,7 +214,7 @@ body {
     padding: 1em;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .container .box .ggimg {
@@ -245,23 +244,25 @@ body {
     margin-right: 1em;
 }
 
- .container .box:nth-child(1) {
+.container .box:nth-child(1) {
     grid-column: span 1;
     grid-row: span 3;
 }
+
 .container .box:nth-child(2) {
     grid-column: span 1;
     grid-row: span 2;
 }
+
 .container .box:nth-child(3) {
     grid-column: span 1;
     grid-row: span 2;
 }
+
 .container .box:nth-child(4) {
     grid-column: span 2;
     grid-row: span 2;
 }
-
 
 .container .box.rg {
     background-color: #FF6A71;
@@ -285,13 +286,9 @@ body {
 
 @media (max-width: 850px) {
     .container {
-        padding-top: 18px;
-        padding-left: 20px;
-        padding-right: 10px;
-        padding-bottom: 10px;
+        padding: 18px 10px;
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
         grid-template-rows: minmax(auto, auto);
-        
     }
     .container .box {
         grid-column: unset !important;
@@ -300,28 +297,13 @@ body {
     }
 }
 
-@media(min-width: 471px) and (max-width:849px){
-    .container{
-        padding-top: 18px;
-        padding-left: 20px;
-        padding-right: 10px;
-        padding-bottom: 10px; 
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-        grid-template-rows: minmax(auto, auto);
-    }
-    .container .box {
-        grid-column: unset !important;
-        grid-row: unset !important;
-    }
-}
-
 @media (max-width: 470px) {
     .sidebar {
-        width: 50px; 
+        width: 50px;
     }
 
     .sidebar.active {
-        width: 200px; 
+        width: 200px;
     }
 
     .sidebar ul li .tooltip {
@@ -333,16 +315,14 @@ body {
     }
 
     .container {
-        padding-top: 18px;
-        padding-left: 0px; 
-        padding-right: 6px;
-        width: calc(100% - 90px); 
+        padding: 18px 6px;
+        width: calc(100% - 90px);
     }
 
     .sidebar.active ~ .container {
-        left: 200px; 
+        left: 200px;
         padding-left: 20px;
         padding-bottom: 1rem;
-        width: calc(100% - 200px); 
+        width: calc(100% - 200px);
     }
 }
