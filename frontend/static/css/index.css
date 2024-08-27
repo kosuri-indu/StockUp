@@ -12,17 +12,6 @@
   transform: translateY(20px);
 }
 
-/* Active page */
-.page-transition.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade-out effect for the old page */
-.page-transition.fade-out {
-  opacity: 0;
-  transform: translateY(20px);
-}
 
 :root {
   --primary-color-start: #25C2F6; /* Start color for gradient */
@@ -44,7 +33,6 @@
 html, body {
   height: 100%;
   font-family: "Poppins", sans-serif;
-  overflow: hidden;
 }
 
 img {

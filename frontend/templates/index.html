@@ -5,45 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+    
     <title>StockUp | Your Smart Fridge Assistant</title>
     <style>
         /* Page Transition CSS */
         .page-transition {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          opacity: 0;
-          transform: translateX(100%);
-          transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
         .page-transition.active {
-          opacity: 1;
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .page-transition.fade-out {
-          opacity: 0;
+            opacity: 0;
+            transform: translateX(100%);
         }
 
         /* Header image styles */
         .header__image::before {
-          position: absolute;
-          content: "";
-          width: 100%;
-          max-width: 550px;
-          aspect-ratio: 1;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background-image: url("{{url_for('static', filename='images/header-bg.png')}}");
-          background-size: cover;
-          background-position: center center;
-          background-repeat: no-repeat;
-          border-radius: 100%;
-          opacity: 0.5;
-          z-index: -1;
+            position: absolute;
+            content: "";
+            width: 100%;
+            max-width: 550px;
+            aspect-ratio: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("{{url_for('static', filename='images/header-bg.png')}}");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Header content styles */
+        .header__container {
+            padding: 60px 20px 40px; /* Increased top padding for spacing */
+        }
+
+        /* New Section Styles */
+        .info-section {
+            padding: 40px 20px;
+            text-align: center;
+            background: #f5f5f5; /* Light background for contrast */
+            margin-top: 80px; /* Ensure space between header and new sections */
+        }
+
+        .info-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            display: inline-block;
+            width: 300px;
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -125,86 +173,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- New Info Sections -->
+        <div class="info-section" id="info-sections">
+            <h2>Explore Our Features</h2>
+            <div class="info-card">
+                <i class="ri-fridge-line"></i>
+                <h3>Smart Inventory</h3>
+                <p>Keep track of everything in your fridge with ease. Our smart inventory system updates automatically and helps you manage your food better.</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-time-line"></i>
+                <h3>Expiration Tracking</h3>
+                <p>Never worry about expired food again. Our expiration tracking system sends you timely notifications so you can stay fresh.</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-recipe-line"></i>
+                <h3>Recipe Suggestions</h3>
+                <p>Looking for new recipes? Our app suggests recipes based on what you have in your fridge, making meal planning a breeze.</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-list-check-line"></i>
+                <h3>Shopping List</h3>
+                <p>Create and manage your shopping list effortlessly. Keep track of what you need and never miss an item again.</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-store-line"></i>
+                <h3>Find Stores</h3>
+                <p>Find local stores and markets easily. Our app helps you locate where you can buy what you need quickly and efficiently.</p>
+            </div>
+        </div>
     </div>
-    
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const signUpBtn = document.getElementById("signUpBtn");
-
-    if (signUpBtn) {
-        signUpBtn.addEventListener("click", (event) => {
-            event.preventDefault();
-            transitionToPage("/signup");  // Adjust URL to your Flask route
-        });
-    }
-
-    function transitionToPage(newContentUrl) {
-        const container = document.getElementById('page-container');
-        
-        // Start fade-out transition
-        container.classList.add('fade-out');
-
-        // After transition ends, fetch new content
-        container.addEventListener('transitionend', function onTransitionEnd() {
-            // Remove the event listener after it is triggered
-            container.removeEventListener('transitionend', onTransitionEnd);
-
-            // Fetch new page content
-            fetch(newContentUrl)
-                .then(response => response.text())
-                .then(html => {
-                    // Replace container content with new content
-                    container.innerHTML = html;
-
-                    // Remove fade-out class and activate the new content
-                    container.classList.remove('fade-out');
-                    container.classList.add('active');
-
-                    // Scroll reveal or any additional setup can be re-applied here
-                    ScrollReveal().reveal(".header__image img", { origin: "left", duration: 1000 });
-                });
-        });
-    }
-
-    const scrollRevealOption = {
-        distance: "50px",
-        origin: "bottom",
-        duration: 1000,
-    };
-
-    ScrollReveal().reveal(".header__image img", {
-        ...scrollRevealOption,
-        origin: "right",
-    });
-
-    ScrollReveal().reveal(".header__content h1", {
-        ...scrollRevealOption,
-        delay: 500,
-    });
-
-    ScrollReveal().reveal(".header__content p", {
-        ...scrollRevealOption,
-        delay: 1000,
-    });
-
-    ScrollReveal().reveal(".header__content form", {
-        ...scrollRevealOption,
-        delay: 1500,
-    });
-
-    ScrollReveal().reveal(".header__content .bar", {
-        ...scrollRevealOption,
-        delay: 2000,
-    });
-
-    ScrollReveal().reveal(".header__image__card", {
-        duration: 1000,
-        interval: 500,
-        delay: 2500,
-    });
-});
-
-    </script>
-  </body>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
 </html>
