@@ -4,23 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <style>
+        .page-transition {
+            opacity: 1;
+            transform: translateX(0);
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .slide-out {
+            opacity: 0;
+            transform: translateX(100%); 
+            background: linear-gradient(135deg, white, #FFB703);
+        }
+        .slide-in {
+            opacity: 1;
+            transform: translateX(0); 
+            
+        }
+    </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-    <script src="{{ url_for('static', filename='js/transition.js') }}" defer></script>
 </head>
-<body>
+<body class="page-transition">
+
+    <script>
+      // Auto-hide flash messages after 3 seconds
+      setTimeout(function() {
+        const flashMessages = document.querySelectorAll('.flash-message-container .alert');
+        flashMessages.forEach(function(message) {
+          message.style.display = 'none';
+        });
+      }, 3000);  // Hides after 3 seconds
+    </script>
+
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-        <div class="flash-message-container">
-            {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
+      <div class="flash-message-container">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
     {% endif %}
     {% endwith %}
-
-    <div class="auth-container">
+    <div id="page-container" class="auth-container">
         <div class="auth-image">
             <img src="{{ url_for('static', filename='images/signin.svg') }}" alt="Sign In Image">
         </div>
@@ -34,9 +60,34 @@
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="auth-button">Sign In</button>
-                <p class="auth-link">Don't have an account? <a href="/signup">Sign Up</a></p>
+                <p class="auth-link">Don't have an account? <a id="upbtn" href="/signup">Sign Up</a></p>
             </form>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const upbtn = document.getElementById("upbtn");
+
+            if (upbtn) {
+                upbtn.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    transitionToPage("/signup");
+                });
+            }
+
+            function transitionToPage(url) {
+                const body = document.body;
+                // Start horizontal sliding transition
+                body.classList.add('slide-out');
+
+                // After the transition, redirect to the new page
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 200);  // Matches the CSS transition duration (0.5s)
+            }
+        });
+    </script>
+
 </body>
 </html>

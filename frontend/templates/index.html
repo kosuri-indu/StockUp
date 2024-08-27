@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
     <title>StockUp | Your Smart Fridge Assistant</title>
     <style>
+        /* Page Transition CSS */
         .page-transition {
           position: absolute;
           width: 100%;
@@ -14,19 +15,19 @@
           top: 0;
           left: 0;
           opacity: 0;
-          transition: opacity s ease-in-out, transform 1s ease-in-out;
-          transform: translateY(20px);
+          transform: translateX(100%);
+          transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
         .page-transition.active {
           opacity: 1;
-          transform: translateY(0);
         }
 
         .page-transition.fade-out {
           opacity: 0;
-          transform: translateY(20px);
         }
+
+        /* Header image styles */
         .header__image::before {
           position: absolute;
           content: "";
@@ -129,86 +130,81 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const menuBtn = document.getElementById("menu-btn");
-            const navLinks = document.getElementById("nav-links");
-            const menuBtnIcon = menuBtn.querySelector("i");
+    const signUpBtn = document.getElementById("signUpBtn");
 
-            menuBtn.addEventListener("click", () => {
-                navLinks.classList.toggle("open");
-
-                const isOpen = navLinks.classList.contains("open");
-                menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-            });
-
-            navLinks.addEventListener("click", () => {
-                navLinks.classList.remove("open");
-                menuBtnIcon.setAttribute("class", "ri-menu-line");
-            });
-
-            const signUpBtn = document.getElementById("signUpBtn");
-
-            if (signUpBtn) {
-                signUpBtn.addEventListener("click", () => {
-                    transitionToPage("/signup");  // Ensure this matches your Flask route
-                });
-            } else {
-                console.error("Sign Up button not found.");
-            }
-
-            function transitionToPage(newContentUrl) {
-                const container = document.getElementById('page-container');
-                container.classList.add('fade-out');
-
-                container.addEventListener('transitionend', function onTransitionEnd() {
-                    container.removeEventListener('transitionend', onTransitionEnd);
-                    
-                    fetch(newContentUrl)
-                        .then(response => response.text())
-                        .then(html => {
-                            container.innerHTML = html;
-                            container.classList.remove('fade-out');
-                            container.classList.add('active');
-                        });
-                });
-            }
-
-            const scrollRevealOption = {
-                distance: "50px",
-                origin: "bottom",
-                duration: 1000,
-            };
-
-            ScrollReveal().reveal(".header__image img", {
-                ...scrollRevealOption,
-                origin: "right",
-            });
-
-            ScrollReveal().reveal(".header__content h1", {
-                ...scrollRevealOption,
-                delay: 500,
-            });
-
-            ScrollReveal().reveal(".header__content p", {
-                ...scrollRevealOption,
-                delay: 1000,
-            });
-
-            ScrollReveal().reveal(".header__content form", {
-                ...scrollRevealOption,
-                delay: 1500,
-            });
-
-            ScrollReveal().reveal(".header__content .bar", {
-                ...scrollRevealOption,
-                delay: 2000,
-            });
-
-            ScrollReveal().reveal(".header__image__card", {
-                duration: 1000,
-                interval: 500,
-                delay: 2500,
-            });
+    if (signUpBtn) {
+        signUpBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            transitionToPage("/signup");  // Adjust URL to your Flask route
         });
+    }
+
+    function transitionToPage(newContentUrl) {
+        const container = document.getElementById('page-container');
+        
+        // Start fade-out transition
+        container.classList.add('fade-out');
+
+        // After transition ends, fetch new content
+        container.addEventListener('transitionend', function onTransitionEnd() {
+            // Remove the event listener after it is triggered
+            container.removeEventListener('transitionend', onTransitionEnd);
+
+            // Fetch new page content
+            fetch(newContentUrl)
+                .then(response => response.text())
+                .then(html => {
+                    // Replace container content with new content
+                    container.innerHTML = html;
+
+                    // Remove fade-out class and activate the new content
+                    container.classList.remove('fade-out');
+                    container.classList.add('active');
+
+                    // Scroll reveal or any additional setup can be re-applied here
+                    ScrollReveal().reveal(".header__image img", { origin: "left", duration: 1000 });
+                });
+        });
+    }
+
+    const scrollRevealOption = {
+        distance: "50px",
+        origin: "bottom",
+        duration: 1000,
+    };
+
+    ScrollReveal().reveal(".header__image img", {
+        ...scrollRevealOption,
+        origin: "right",
+    });
+
+    ScrollReveal().reveal(".header__content h1", {
+        ...scrollRevealOption,
+        delay: 500,
+    });
+
+    ScrollReveal().reveal(".header__content p", {
+        ...scrollRevealOption,
+        delay: 1000,
+    });
+
+    ScrollReveal().reveal(".header__content form", {
+        ...scrollRevealOption,
+        delay: 1500,
+    });
+
+    ScrollReveal().reveal(".header__content .bar", {
+        ...scrollRevealOption,
+        delay: 2000,
+    });
+
+    ScrollReveal().reveal(".header__image__card", {
+        duration: 1000,
+        interval: 500,
+        delay: 2500,
+    });
+});
+
     </script>
-</body>
+  </body>
 </html>
