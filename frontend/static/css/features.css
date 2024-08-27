@@ -55,7 +55,8 @@ body {
     position: relative;
     background-color: #e0b378;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 0.5rem solid #8B4513; /* Thick outer border for the shelf */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow for depth */
     overflow: hidden;
 }
 
@@ -63,7 +64,16 @@ body {
     position: relative;
     text-align: center;
     padding: 0.3rem;
-    border: 0.2rem solid;
+    border-right: 0.2rem solid #8B4513; /* Vertical dividers */
+    border-bottom: 0.2rem solid #8B4513; /* Horizontal dividers */
+}
+
+.grid-item:nth-child(6n) {
+    border-right: none; /* Remove right border for last item in each row */
+}
+
+.grid-item:nth-last-child(-n+6) {
+    border-bottom: none; /* Remove bottom border for last row */
 }
 
 .grid-item img {
@@ -78,6 +88,21 @@ body {
     border-radius: 0.5rem;
     background-color: white;
 }
+
+/* Adding subtle gradients for the shelf */
+.shelf::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(to right, #8B4513, #A0522D);
+    border-radius: 1rem;
+    z-index: -1;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Shadow to create a raised effect */
+}
+
 
 
 /*Recipe Genie*/
