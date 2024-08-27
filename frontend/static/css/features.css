@@ -1,17 +1,12 @@
-<<<<<<< HEAD
-/* recipie.css */
-/* .section.recipe-genie {
-=======
+/*Fridge Peek*/
+.fridge{
+    background-color: #ffc84e;
+    height: 95.5vh;
+    border-radius: 1rem;
+}
 
-.section.recipe-genie {
->>>>>>> cd096bbdb0eb3231d79e82fd721bda8e67e186d0
-    margin: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-} */
 
+/*Recipe Genie*/
 .ingredient-selection {
     margin-bottom: 20px;
 }
