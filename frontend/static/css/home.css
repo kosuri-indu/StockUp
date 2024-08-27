@@ -13,7 +13,11 @@ body {
     justify-content: center;
     align-self: center;
     min-height: 100vh;
+<<<<<<< HEAD
     overflow: hidden;
+=======
+    font-family: "Poppins", sans-serif;
+>>>>>>> ff16e9d82fa78d56e01d4b8149d526a50d861295
     background-color: white;
 }
 
@@ -287,6 +291,7 @@ body {
         padding-bottom: 10px;
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
         grid-template-rows: minmax(auto, auto);
+        
     }
     .container .box {
         grid-column: unset !important;
