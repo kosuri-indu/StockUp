@@ -327,12 +327,13 @@ body {
     .container {
         padding-top: 18px;
         padding-left: 0px; 
-        padding-right: 1px;
-        width: calc(100% - 50px); 
+        padding-right: 6px;
+        width: calc(100% - 90px); 
     }
 
     .sidebar.active ~ .container {
         left: 200px; 
+        padding-left: 20px;
         padding-bottom: 1rem;
         width: calc(100% - 200px); 
     }
