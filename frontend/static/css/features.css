@@ -10,11 +10,12 @@ body {
     padding: 2rem;
     position: relative; /* Ensure relative positioning for the button */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 99%;
 }
 
 .fridge h1 {
     font-size: 2rem;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .fridge p {
@@ -40,15 +41,42 @@ body {
     background-color: black;
     color: white;
 }
-
-.shelf-container {
-    background-image: url("{{ url_for('static', filename='images/furnish.jpg') }}") no-repeat center center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.shelf {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    grid-gap: 1rem;
+    margin-top: 2rem;
 }
 
+.grid-item {
+    background-image: url('../images/aa.png') !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 250px; /* Adjust height as needed */
+}
 
+.grid-item img {
+    margin-top: 2.5rem;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.item-info{
+    margin-top: 1.5rem;
+}
+@media (max-width: 1000px) {
+    .shelf {
+        grid-template-columns: repeat(2, 1fr); /* 4 items per row */
+    }
+}
+
+@media (max-width: 575px) {
+    .shelf {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 /*Recipe Genie*/
 .ingredient-selection {
