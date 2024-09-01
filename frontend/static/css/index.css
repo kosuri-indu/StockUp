@@ -4,7 +4,8 @@ body{
     font-family: Poppins;
     margin: 0;
     font-size: 16px;
-    background-color: #4f8b69;
+    padding: 1rem;
+    border: 1rem;
 }
 *{
     box-sizing: border-box;
@@ -141,12 +142,12 @@ header nav{
     top: 50px;
     left: 50px;
     content: '';
-    background-color: white;
+    background-color: rgb(226, 167, 167);
     width: 400px;
     height: 300px;
     z-index: 10;
     pointer-events: none;
-    border-radius: 20px  50px 110px  230px;
+    border-radius: 20px  50px 100px  130px;
     filter: blur(150px);
     opacity: .6;
 }
